@@ -81,9 +81,7 @@ const Details = ({route, navigation}) => {
           <>
             <Image
               source={{
-                uri:
-                  movie.poster ||
-                  data.seasons.items[0].episodes.items[1].poster,
+                uri: movie.card || movie.poster,
               }}
               style={styles.trailer}
             />
@@ -101,7 +99,7 @@ const Details = ({route, navigation}) => {
           <Text style={styles.year}>{movie.year || data.year}</Text>
           <Text style={styles.age}>12+</Text>
           <Text style={styles.seasons}>
-            {movie.seasons || data.numberOfSeasons} Seasons
+            {movie.seasons && movie.seasons + ' Seasons'}{' '}
           </Text>
           <MaterialIcons name="hd" size={30} color="white" />
         </View>
@@ -154,41 +152,45 @@ const Details = ({route, navigation}) => {
         </Pressable>
       </View>
 
-      <View style={styles.episodeOpions}>
-        <Pressable style={styles.episodeBtn}>
-          <Text style={styles.episodeText}>Episodes</Text>
-        </Pressable>
-        <Pressable style={styles.more}>
-          <Text style={styles.moreText}>More Like This</Text>
-        </Pressable>
-      </View>
-      <Picker
-        style={styles.picker}
-        selectedValue={season}
-        onValueChange={(itemValue, itemIndex) => {
-          setSeason(itemValue);
-        }}>
-        <Picker.Item label="Season 1" value="Season 1" />
-        <Picker.Item label="Season 2" value="Season 2" />
-      </Picker>
-      <View style={styles.episodeContainer}>
-        <FlatList
-          data={
-            season === 'Season 1'
-              ? data.seasons.items[0].episodes.items
-              : data.seasons.items[1].episodes.items
-          }
-          renderItem={({item}) => (
-            <EpisodeCard
-              title={item.title}
-              poster={item.poster}
-              duration={item.duration}
-              description={item.description}
+      {movie?.seasons && (
+        <>
+          <View style={styles.episodeOpions}>
+            <Pressable style={styles.episodeBtn}>
+              <Text style={styles.episodeText}>Episodes</Text>
+            </Pressable>
+            <Pressable style={styles.more}>
+              <Text style={styles.moreText}>More Like This</Text>
+            </Pressable>
+          </View>
+          <Picker
+            style={styles.picker}
+            selectedValue={season}
+            onValueChange={(itemValue, itemIndex) => {
+              setSeason(itemValue);
+            }}>
+            <Picker.Item label="Season 1" value="Season 1" />
+            <Picker.Item label="Season 2" value="Season 2" />
+          </Picker>
+          <View style={styles.episodeContainer}>
+            <FlatList
+              data={
+                season === 'Season 1'
+                  ? data.seasons.items[0].episodes.items
+                  : data.seasons.items[1].episodes.items
+              }
+              renderItem={({item}) => (
+                <EpisodeCard
+                  title={item.title}
+                  poster={item.poster}
+                  duration={item.duration}
+                  description={item.description}
+                />
+              )}
+              showsVerticalScrollIndicator={false}
             />
-          )}
-          showsVerticalScrollIndicator={false}
-        />
-      </View>
+          </View>
+        </>
+      )}
     </ScrollView>
   );
 };

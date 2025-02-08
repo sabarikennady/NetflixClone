@@ -22,8 +22,9 @@ const styles = StyleSheet.create({
   pageContainer: {
     flex: 1,
     backgroundColor: '#000',
-    paddingVertical: 15,
+    paddingTop: 15,
     paddingHorizontal: 10,
+    paddingBottom: 70,
   },
 });
 
