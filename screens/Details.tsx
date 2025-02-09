@@ -6,17 +6,16 @@ import {
   Pressable,
   ScrollView,
   FlatList,
-  Alert,
   Dimensions,
 } from 'react-native';
-import React, {useCallback, useState} from 'react';
-import data from '../../data/movie';
+import React, {useState} from 'react';
+import data from '../data/movie';
 import Icon from 'react-native-vector-icons/Feather';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {Picker} from '@react-native-picker/picker';
-import EpisodeCard from './Components/EpisodeCard';
+import EpisodeCard from '../components/EpisodeCard';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
 interface Movie {

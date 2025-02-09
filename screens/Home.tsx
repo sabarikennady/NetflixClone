@@ -1,8 +1,8 @@
 import {View, StyleSheet, FlatList} from 'react-native';
 import React from 'react';
-import categories from '../../data/categories';
-import CategorySlider from './components/CategorySlider';
-import Header from '../../common/Header';
+import categories from '../data/categories';
+import CategorySlider from '../components/CategorySlider';
+import Header from '../components/Header';
 
 const Home = () => {
   return (

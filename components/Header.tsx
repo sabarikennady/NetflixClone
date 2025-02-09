@@ -4,7 +4,7 @@ import React from 'react';
 const Header = () => {
   return (
     <View style={styles.navbarContainer}>
-      <Image style={styles.logo} source={require('../../assets/Logo.png')} />
+      <Image style={styles.logo} source={require('../assets/Logo.png')} />
       <View style={styles.navLinks}>
         <Text style={styles.link}>TV Shows</Text>
         <Text style={styles.link}>Movies</Text>

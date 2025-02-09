@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import SplashScreen from './common/SplashScreen';
+import SplashScreen from './components/SplashScreen';
 import Routes from './Navigation/Routes';
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);

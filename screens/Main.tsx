@@ -10,7 +10,8 @@ import {
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
-const Main = () => {
+
+export const Main = () => {
   const navigation = useNavigation();
   const [formData, setFormData] = useState({
     email: '',
@@ -43,7 +44,7 @@ const Main = () => {
         <Icon name="chevron-left" size={30} color="white" />
         <Image
           style={styles.headerImage}
-          source={require('../../assets/FullLogo.png')}
+          source={require('../assets/FullLogo.png')}
         />
         <Text style={styles.headerText}>Help</Text>
       </View>
@@ -83,8 +84,6 @@ const Main = () => {
     </View>
   );
 };
-
-export default Main;
 
 const styles = StyleSheet.create({
   pageContainer: {
@@ -149,3 +148,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+export default Main;

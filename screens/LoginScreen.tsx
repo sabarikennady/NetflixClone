@@ -2,14 +2,14 @@ import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
-const LoginScreen = () => {
+export const LoginScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.pageContainer}>
       <View style={styles.header}>
         <Image
           style={styles.headerImage}
-          source={require('../../assets/FullLogo.png')}
+          source={require('../assets/FullLogo.png')}
         />
         <View style={styles.headerOptions}>
           <Text style={styles.headerText}>Help</Text>
@@ -17,11 +17,10 @@ const LoginScreen = () => {
         </View>
       </View>
 
-      {/* Login Screen Message */}
       <View style={styles.loginMessageContianer}>
         <Image
           style={styles.loginMessageImage}
-          source={require('../../assets/Devices.png')}
+          source={require('../assets/Devices.png')}
         />
         <Text style={styles.loginHeading}>Watch on any device</Text>
         <Text style={styles.loginMessageText}>
@@ -29,7 +28,6 @@ const LoginScreen = () => {
         </Text>
       </View>
 
-      {/* Button */}
       <Pressable
         style={styles.loginButton}
         onPress={() => {
@@ -40,8 +38,6 @@ const LoginScreen = () => {
     </View>
   );
 };
-
-export default LoginScreen;
 
 const styles = StyleSheet.create({
   pageContainer: {
@@ -104,3 +100,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+export default LoginScreen;
