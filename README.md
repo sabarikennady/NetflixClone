@@ -30,7 +30,7 @@ NetflixDemo is a React Native project that replicates core UI and functionality 
 
 ## Demo
 
-  <img src="assets/recording.gif" alt="Demo" style="width: 50%;">
+  <img src="assets/recording.gif" alt="Demo" style="width: 30%;">
 
 
 ## 📂 Project Setup
