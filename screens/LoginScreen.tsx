@@ -1,48 +1,63 @@
-import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Pressable,
+  ImageBackground,
+} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 export const LoginScreen = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.pageContainer}>
-      <View style={styles.header}>
-        <Image
-          style={styles.headerImage}
-          source={require('../assets/FullLogo.png')}
-        />
-        <View style={styles.headerOptions}>
-          <Text style={styles.headerText}>Help</Text>
-          <Text style={styles.headerText}>Privacy</Text>
+    <ImageBackground
+      source={{
+        uri: 'https://user-images.githubusercontent.com/33485020/108069438-5ee79d80-7089-11eb-8264-08fdda7e0d11.jpg',
+      }}
+      style={styles.backgroundImage}
+      resizeMode="cover">
+      <View style={styles.pageContainer}>
+        <View style={styles.header}>
+          <Image
+            style={styles.headerImage}
+            source={require('../assets/FullLogo.png')}
+          />
+          <View style={styles.headerOptions}>
+            <Text style={styles.headerText}>Help</Text>
+            <Text style={styles.headerText}>Privacy</Text>
+          </View>
         </View>
-      </View>
 
-      <View style={styles.loginMessageContianer}>
-        <Image
-          style={styles.loginMessageImage}
-          source={require('../assets/Devices.png')}
-        />
-        <Text style={styles.loginHeading}>Watch on any device</Text>
-        <Text style={styles.loginMessageText}>
-          Stream on your phone, tablet, laptop, and TV without paying more.
-        </Text>
-      </View>
+        <View style={styles.loginMessageContainer}>
+          <Text style={styles.loginHeading}>Watch on any device</Text>
+          <Text style={styles.loginMessageText}>
+            Stream on your phone, tablet, laptop, and TV without paying more.
+          </Text>
+        </View>
 
-      <Pressable
-        style={styles.loginButton}
-        onPress={() => {
-          navigation.navigate('Main');
-        }}>
-        <Text style={styles.loginButtonText}>Login</Text>
-      </Pressable>
-    </View>
+        <Pressable
+          style={styles.loginButton}
+          onPress={() => {
+            navigation.navigate('Main');
+          }}>
+          <Text style={styles.loginButtonText}>Login</Text>
+        </Pressable>
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
   pageContainer: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
     padding: 20,
   },
   header: {
@@ -63,15 +78,10 @@ const styles = StyleSheet.create({
   headerText: {
     color: 'white',
   },
-  loginMessageContianer: {
+  loginMessageContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-  },
-  loginMessageImage: {
-    width: 300,
-    height: 300,
-    resizeMode: 'contain',
   },
   loginMessageText: {
     color: 'white',

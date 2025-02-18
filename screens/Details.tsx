@@ -72,6 +72,10 @@ const Details = ({route, navigation}) => {
             width={Dimensions.get('window').width}
             play={true}
             videoId={movie.videoId || 'R7oJq9lrbZw'}
+            webViewProps={{
+              javaScriptEnabled: true,
+              domStorageEnabled: true,
+            }}
             onChangeState={event => {
               if (event === 'ended') setPlaying(false);
             }}
